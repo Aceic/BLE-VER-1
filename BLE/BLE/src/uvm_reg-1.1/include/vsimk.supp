@@ -1,0 +1,978 @@
+# $Id: //dvt/mti/rel/10.0b/src/vsim/vsimk.supp#1 $
+
+{
+   ld_cond_0
+   Memcheck:Cond
+   fun:_dl_start
+   obj:/lib/ld-2.2.4.so
+}
+
+{
+   ld_cond_1
+   Memcheck:Cond
+   fun:elf_dynamic_do_rel*.*
+   fun:_dl_relocate_object
+   fun:dl_main     
+   fun:_dl_sysdep_start
+   fun:_dl_start     
+}
+
+{
+   ld_cond_2
+   Memcheck:Cond
+   fun:elf_dynamic_do_rel*.*
+   fun:_dl_relocate_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+}
+
+{
+   gzwrite_cond_0
+   Memcheck:Cond
+   fun:longest_match
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+}
+
+{
+   gzwrite_cond_1
+   Memcheck:Cond
+   fun:fill_window
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+}
+
+{
+   gzwrite_cond_2
+   Memcheck:Cond
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+   fun:log_write
+}
+
+
+{
+   gzwrite_cond_3
+   Memcheck:Cond
+   fun:crc32_little
+   fun:crc32
+   fun:gzwrite
+   fun:log_write
+}
+
+{
+   gzwrite_value4_0
+   Memcheck:Value4
+   fun:longest_match
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+}
+
+{
+   gzwrite_value4_1
+   Memcheck:Value4
+   fun:fill_window
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+}
+
+{
+   gzwrite_value4_2
+   Memcheck:Value4
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+   fun:log_write
+}
+
+{
+   gzwrite_value4_3
+   Memcheck:Value4
+   fun:crc32_little
+   fun:crc32
+   fun:gzwrite
+   fun:log_write
+}
+
+{
+   pthread_param_0
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:pthread_create@GLIBC_2.0
+   fun:_ZN7sc_core18sc_cor_pkg_pthread6createEjPFvPvES1_
+   fun:_ZN7sc_core17sc_thread_process22prepare_for_simulationEv
+   fun:_ZN7sc_core13sc_simcontext19prepare_to_simulateEv
+   fun:_ZN7sc_core13sc_simcontext10initializeEb
+   fun:_ZN7sc_core13sc_initializeEv
+   fun:_ZN7sc_core16scmti_initializeEv
+   fun:scu_initialize_systemc_kernel
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+}
+
+{
+   pthread_param_1
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:_ZN7sc_core18sc_cor_pkg_pthread6createEjPFvPvES1_
+   fun:_ZN7sc_core17sc_thread_process22prepare_for_simulationEv
+   fun:_ZN7sc_core13sc_simcontext19prepare_to_simulateEv
+   fun:_ZN7sc_core13sc_simcontext10initializeEb
+   fun:_ZN7sc_core13sc_initializeEv
+   fun:_ZN7sc_core16scmti_initializeEv
+   fun:scu_initialize_systemc_kernel
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+}
+
+
+{
+   exit_param_0
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:exit
+   fun:confirm_verilog_finish
+   fun:mti_ScStop
+   fun:vsimRun
+   fun:vsim_run
+   fun:do_run
+   fun:tclprim_realrun
+   fun:tclprim_run
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+   fun:TclExecuteByteCode
+}
+
+{
+   mti_expand_env_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:_strsave_nopool
+   fun:expand_env_in_arg
+   fun:parse_vsim_args
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+   fun:TclExecuteByteCode
+   fun:TclCompEvalObj
+   fun:Tcl_EvalObjEx
+   fun:Tcl_CatchObjCmd
+   fun:TclEvalObjvInternal
+}
+
+{
+   pthread_leak_0
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core13sc_simcontext19prepare_to_simulateEv
+   fun:_ZN7sc_core13sc_simcontext10initializeEb
+   fun:_ZN7sc_core13sc_initializeEv
+   fun:_ZN7sc_core16scmti_initializeEv
+   fun:scu_initialize_systemc_kernel
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+   fun:TclExecuteByteCode
+   fun:TclCompEvalObj
+}
+
+{
+   dlopen_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:decompose_rpath
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+}
+
+{
+   mti_sc_object_leak_0
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core10sc_mempool8allocateEj
+   fun:_ZN7sc_core9sc_objectC2EPKc
+   fun:_ZN7sc_core15sc_process_hostC2EPKc
+   fun:_ZN7sc_core9sc_moduleC2Ev
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+}
+
+{
+   dlopen_leak_1
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:cld_load_file_imp
+   fun:cld_load_file_global
+   fun:scu_load_systemc_library
+}
+
+{
+   dlopen_leak_2
+   Memcheck:Leak
+   fun:calloc
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:cld_load_file_imp
+   fun:cld_load_file_global
+   fun:scu_load_systemc_library
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+}
+
+{
+   sock_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:inet_ntoa
+   fun:TcpAccept
+   fun:FileHandlerEventProc
+   fun:Tcl_ServiceEvent
+   fun:Tcl_DoOneEvent
+   fun:mti_DoOneEvent
+   fun:start_front_end
+   fun:mti_main
+   fun:main
+}
+
+{
+   dlopen_leak_3
+   Memcheck:Leak
+   fun:malloc
+   fun:realloc
+   fun:add_dependency
+   fun:_dl_lookup_versioned_symbol
+   fun:_dl_relocate_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+}
+{
+   dlopen_leak_4
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen
+   fun:__nss_lookup_function
+   fun:__nss_lookup
+   fun:__nss_hosts_lookup
+   fun:gethostbyname_r@@GLIBC_2.1.2
+}
+
+{
+   dlopen_leak_5
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:cld_load_file_imp
+   fun:cld_load_file_global
+   fun:scu_load_systemc_library
+}
+
+{
+   mti_tempnam_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:strdup
+   fun:tempnam
+   fun:gui_prepare_checkpoint
+   fun:message_add
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_symhdr_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:alloc_and_copy
+   fun:symhdr_set_traceback_header
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_sc_object_leak_1
+   Memcheck:Leak
+   fun:_Znaj
+   fun:_ZN7sc_core14sc_mempool_intC1Eiii
+   fun:_ZN7sc_core10sc_mempool8allocateEj
+   fun:_ZN7sc_core9sc_objectC2EPKc
+   fun:_ZN7sc_core15sc_process_hostC2EPKc
+   fun:_ZN7sc_core9sc_moduleC2Ev
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+}
+{
+   mti_sc_object_leak_2
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core14sc_mempool_intC1Eiii
+   fun:_ZN7sc_core10sc_mempool8allocateEj
+   fun:_ZN7sc_core9sc_objectC2EPKc
+   fun:_ZN7sc_core15sc_process_hostC2EPKc
+   fun:_ZN7sc_core9sc_moduleC2Ev
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+}
+
+{
+   iostream_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:__newlocale
+   fun:_ZNSt6locale5facet18_S_create_c_localeERP15__locale_structPKcS2_
+   fun:_ZNSt6locale5_ImplC1EPPNS_5facetEjb
+   fun:_ZNSt6locale7classicEv
+   fun:_ZNSt6localeC1Ev
+   fun:_ZNSt13basic_filebufIcSt11char_traitsIcEEC2Ev
+   fun:_ZN9__gnu_cxx13stdio_filebufIcSt11char_traitsIcEEC1EP8_IO_FILESt13_Ios_Openmodei
+   fun:_ZNSt8ios_base4Init13_S_ios_createEb
+   fun:_ZNSt8ios_base4InitC1Ev
+   fun:_Z41__static_initialization_and_destruction_0ii
+   fun:_GLOBAL__I__ZThn8_NSt14basic_iostreamIwSt11char_traitsIwEED0Ev.._.._.._.._gcc_3.2.3_libstdc___v3_src_io_inst.ccCG7ohb
+}
+
+{
+   dlopen_leak_6
+   Memcheck:Leak
+   fun:malloc
+   fun:add_to_global
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:cld_load_file_imp
+   fun:cld_load_file_global
+   fun:scu_load_systemc_library
+}
+
+{
+   pthread_leak_1
+   Memcheck:Leak
+   fun:calloc
+   fun:pthread_setspecific
+   fun:inet_ntoa
+   fun:TcpAccept
+   fun:FileHandlerEventProc
+   fun:Tcl_ServiceEvent
+   fun:Tcl_DoOneEvent
+   fun:mti_DoOneEvent
+   fun:start_front_end
+   fun:mti_main
+   fun:main
+}
+
+{
+   dlopen_leak_7
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:cld_load_file_imp
+}
+
+{
+   dlopen_leak_8
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen
+   fun:__nss_lookup_function
+   fun:__nss_lookup
+}
+
+{
+   dlopen_leak_9
+   Memcheck:Leak
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen
+   fun:__nss_lookup_function
+   fun:__nss_lookup
+}
+
+{
+   mti_sc_object_leak_3
+   Memcheck:Leak
+   fun:_Znaj
+   fun:_ZN7sc_core9sc_object13mti_init_nameEPKc
+   fun:_ZN7sc_core9sc_object14sc_object_initEPKc
+   fun:_ZN7sc_core9sc_objectC2EPKc
+   fun:_ZN7sc_core12sc_process_bC2EPKcMNS_15sc_process_hostEFvvEPS3_
+   fun:_ZN7sc_core17sc_method_processC1EPKcMNS_15sc_process_hostEFvvEPS3_
+   fun:_ZN7sc_core13sc_simcontext23register_method_processEPKcMNS_15sc_process_hostEFvvEPNS_9sc_moduleE
+   fun:_ZN3monC1EN7sc_core14sc_module_nameE
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+}
+
+{
+   mti_sc_object_leak_4
+   Memcheck:Leak
+   fun:malloc
+   fun:_ZN7sc_core12sc_allocator8allocateEv
+   fun:_ZN7sc_core14sc_mempool_int11do_allocateEj
+   fun:_ZN7sc_core10sc_mempool8allocateEj
+   fun:_ZN7sc_core9sc_objectC2EPKc
+   fun:_ZN7sc_core15sc_process_hostC2EPKc
+   fun:_ZN7sc_core9sc_moduleC2Ev
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+}
+
+{
+   mti_argv_leak_0
+   Memcheck:Leak
+   fun:calloc
+   fun:_malloc_nopool
+   fun:start_front_end
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_main_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:_strsave_nopool
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_register_thread_leak_0
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core13sc_simcontext23register_thread_processEPKcMNS_15sc_process_hostEFvvEPNS_9sc_moduleE
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+   fun:TclExecuteByteCode
+}
+
+{
+   mti_vhpi_init_leak_0
+   Memcheck:Leak
+   fun:calloc
+   fun:vhpi_Initialize
+   fun:LoadUserTFs
+   fun:vl_load_systfs
+   fun:common_setup
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+   fun:TclExecuteByteCode
+   fun:TclCompEvalObj
+   fun:Tcl_EvalObjEx
+}
+
+{
+   mti_simcontext_leak_0
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZNSt24__default_alloc_templateILb1ELi0EE8allocateEj
+   fun:_ZNSt14__simple_allocIPN7sc_core9sc_objectESt24__default_alloc_templateILb1ELi0EEE8allocateEj
+   fun:_ZNSt18_Vector_alloc_baseIPN7sc_core9sc_objectESaIS2_ELb1EE11_M_allocateEj
+   fun:_ZNSt6vectorIPN7sc_core9sc_objectESaIS2_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS2_S4_EERKS2_
+   fun:_ZNSt6vectorIPN7sc_core9sc_objectESaIS2_EE9push_backERKS2_
+   fun:_ZN7sc_core10sc_pvectorIPNS_9sc_objectEE9push_backES2_
+   fun:_ZN7sc_core13sc_simcontext16add_child_objectEPNS_9sc_objectE
+   fun:_ZN7sc_core9sc_object13mti_init_nameEPKc
+   fun:_ZN7sc_core9sc_object20mti_fix_default_nameEv
+   fun:_ZN7sc_core9sc_object20mti_bind_sc_obj_nameEPc
+   fun:_ZN7sc_core15scmti_bind_nameEPvPc
+}
+
+{
+   dlopen_leak_10
+   Memcheck:Leak
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen
+   fun:__nss_lookup_function
+   fun:__nss_lookup
+   fun:__nss_hosts_lookup
+   fun:gethostbyname_r@@GLIBC_2.1.2
+}
+
+{
+   dlopen_leak_11
+   Memcheck:Leak
+   fun:malloc
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen
+   fun:__nss_lookup_function
+   fun:__nss_lookup
+   fun:__nss_hosts_lookup
+   fun:gethostbyname_r@@GLIBC_2.1.2
+}
+
+{
+   dlopen_leak_12
+   Memcheck:Leak
+   fun:malloc
+   fun:open_path
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+}
+
+{
+   mti_initialize_init_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:_strsave_nopool
+   fun:InitializeIni
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_register_method_leak_0
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core13sc_simcontext23register_method_processEPKcMNS_15sc_process_hostEFvvEPNS_9sc_moduleE
+   fun:_ZN6driverC1EN7sc_core14sc_module_nameE
+   fun:_ZN3topC1EN7sc_core14sc_module_nameE
+   fun:mti__top
+   fun:scu_exec_sc_module_ctor
+   fun:scu_elab_systemc_module
+   fun:common_setup
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+}
+
+{
+   mti_initialize_init_leak_1
+   Memcheck:Leak
+   fun:malloc
+   fun:TclpAlloc
+   fun:Tcl_Alloc
+   fun:Tcl_DStringAppend
+   fun:TclGetEnv
+   fun:mtiGetEnv
+   fun:InitializeIni
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_simcontext_leak_1
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZNSt24__default_alloc_templateILb1ELi0EE14_S_chunk_allocEjRi
+   fun:_ZNSt24__default_alloc_templateILb1ELi0EE9_S_refillEj
+   fun:_ZNSt24__default_alloc_templateILb1ELi0EE8allocateEj
+   fun:_ZNSt14__simple_allocIPN7sc_core9sc_objectESt24__default_alloc_templateILb1ELi0EEE8allocateEj
+   fun:_ZNSt18_Vector_alloc_baseIPN7sc_core9sc_objectESaIS2_ELb1EE11_M_allocateEj
+   fun:_ZNSt6vectorIPN7sc_core9sc_objectESaIS2_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS2_S4_EERKS2_
+   fun:_ZNSt6vectorIPN7sc_core9sc_objectESaIS2_EE9push_backERKS2_
+   fun:_ZN7sc_core10sc_pvectorIPNS_9sc_objectEE9push_backES2_
+   fun:_ZN7sc_core13sc_simcontext16add_child_objectEPNS_9sc_objectE
+   fun:_ZN7sc_core9sc_object13mti_init_nameEPKc
+   fun:_ZN7sc_core9sc_object14sc_object_initEPKc
+}
+
+{
+   mti_tcl_interp_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:TclpAlloc
+   fun:Tcl_Alloc
+   fun:TclCreateExecEnv
+   fun:Tcl_CreateInterp
+   fun:initialize_tcl_interp
+   fun:start_tcl
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_tcl_interp_leak_1
+   Memcheck:Leak
+   fun:malloc
+   fun:TclpAlloc
+   fun:Tcl_Alloc
+   fun:TclSetEnv
+   fun:Tcl_PutEnv 
+   fun:mti_PutEnv
+   fun:start_tcl
+   fun:mti_main
+   fun:main
+}
+
+{
+   sprintf_leak_0
+   Memcheck:Leak
+   fun:malloc
+   fun:__wcsmbs_load_conv
+   fun:mbsnrtowcs
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+}
+
+{
+   pthread_leak_2
+   Memcheck:Leak
+   fun:malloc
+   fun:__pthread_initialize_manager
+   fun:pthread_create@GLIBC_2.0
+   fun:_ZN7sc_core18sc_cor_pkg_pthread6createEjPFvPvES1_
+   fun:_ZN7sc_core17sc_thread_process22prepare_for_simulationEv
+   fun:_ZN7sc_core13sc_simcontext19prepare_to_simulateEv
+   fun:_ZN7sc_core13sc_simcontext10initializeEb
+   fun:_ZN7sc_core13sc_initializeEv
+   fun:_ZN7sc_core16scmti_initializeEv
+   fun:scu_initialize_systemc_kernel
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+}
+{
+   pthread_leak_3
+   Memcheck:Leak
+   fun:_Znwj
+   fun:_ZN7sc_core18sc_cor_pkg_pthread6createEjPFvPvES1_
+   fun:_ZN7sc_core17sc_thread_process22prepare_for_simulationEv
+   fun:_ZN7sc_core13sc_simcontext19prepare_to_simulateEv
+   fun:_ZN7sc_core13sc_simcontext10initializeEb
+   fun:_ZN7sc_core13sc_initializeEv
+   fun:_ZN7sc_core16scmti_initializeEv
+   fun:scu_initialize_systemc_kernel
+   fun:vsimsetup
+   fun:tclprim_LoadDesign
+   fun:TclInvokeStringCommand
+   fun:TclEvalObjvInternal
+}
+
+{
+   mti_RPC_init_leak_0
+   Memcheck:Leak
+   fun:calloc
+   fun:_malloc_nopool
+   fun:save_string
+   fun:mti_RPC_Init
+   fun:start_tcl
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_initialize_init_leak_2
+   Memcheck:Leak
+   fun:realloc
+   fun:TclpRealloc
+   fun:Tcl_Realloc
+   fun:TclSetEnv
+   fun:Tcl_PutEnv
+   fun:mti_PutEnv
+   fun:InitializeIni
+   fun:mti_main
+   fun:main
+}
+
+{
+   mti_main_leak_1
+   Memcheck:Leak
+   fun:malloc
+   fun:TclpAlloc
+   fun:Tcl_Alloc
+   fun:AllocStringEntry
+   fun:Tcl_CreateHashEntry
+   fun:Tcl_RegisterObjType
+   fun:TclInitObjSubsystem
+   fun:TclInitSubsystems
+   fun:mti_main
+   fun:main
+}
+
+{
+   iostream_leak_1
+   Memcheck:Leak
+   fun:malloc
+   fun:realloc
+   fun:argz_append
+   fun:__newlocale
+   fun:_ZNSt6locale5facet18_S_create_c_localeERP15__locale_structPKcS2_
+   fun:_ZNSt6locale5_ImplC1EPPNS_5facetEjb
+   fun:_ZNSt6locale7classicEv
+   fun:_ZNSt6localeC1Ev
+   fun:_ZNSt13basic_filebufIcSt11char_traitsIcEEC2Ev
+   fun:_ZN9__gnu_cxx13stdio_filebufIcSt11char_traitsIcEEC1EP8_IO_FILESt13_Ios_Openmodei
+   fun:_ZNSt8ios_base4Init13_S_ios_createEb
+   fun:_ZNSt8ios_base4InitC1Ev
+}
+
+{
+   pthread_param_2
+   Memcheck:Param
+   clone(child_tidptr)
+   fun:clone
+   fun:__pthread_initialize_manager
+   fun:pthread_create@@GLIBC_2.2.5
+}
+
+{
+   pthread_param_3
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:pthread_create@@GLIBC_2.2.5
+}
+
+{
+   pthread_param_4
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:pthread_onexit_process
+   fun:exit
+   fun:__libc_start_main
+}
+
+{
+   pthread_param_5
+   Memcheck:Param
+   write(buf)
+   fun:write
+   fun:__pthread_initialize_manager
+   fun:pthread_create@@GLIBC_2.2.5
+}
+
+{
+   gethostbyname_param_0
+   Memcheck:Param
+   socketcall.send(msg)
+   fun:send
+   fun:__nscd_get_map_ref
+   fun:nscd_gethst_r
+   fun:__nscd_gethostbyname_r
+   fun:gethostbyname_r@@GLIBC_2.1.2
+   fun:gethostbyname
+   fun:TclpGetHostByName
+   fun:CreateSocketAddress
+   fun:CreateSocket
+   fun:Tcl_OpenTcpClient
+   fun:tclprim_mti_MakeRPCClientCmd
+   fun:TclInvokeStringCommand
+}
+
+{
+   gzclose_cond_0
+   Memcheck:Cond
+   fun:longest_match
+   fun:deflate_fast
+   fun:deflate
+   fun:do_flush
+   fun:gzclose
+}
+
+{
+   gzflush_cond_0
+   Memcheck:Cond
+   fun:longest_match
+   fun:deflate_fast
+   fun:deflate
+   fun:do_flush
+   fun:gzflush
+}
+
+{
+   gzwrite_value4_4
+   Memcheck:Value4
+   fun:compress_block
+   fun:_tr_flush_block
+   fun:deflate_fast
+   fun:deflate
+   fun:gzwrite
+}
+
+{
+   tclrpc_cond_0
+   Memcheck:Cond
+   fun:longest_match
+   fun:deflate_slow
+   fun:deflate
+   fun:compress2
+   fun:compress
+   fun:mti_MakeCmdMsg
+}
+
+{
+   cuserid_param_0
+   Memcheck:Param
+   socketcall.send(msg)
+   fun:send
+   fun:__nscd_get_map_ref
+   fun:nscd_getpw_r
+   fun:__nscd_getpwuid_r
+   fun:getpwuid_r@@GLIBC_2.1.2
+   fun:cuserid
+   fun:ucdbvsim_TestData_update
+}
+
+{
+   FreeObj_mem4_0
+   Memcheck:Addr4
+   fun:vpi_FreeObject
+   fun:vpi_free_object
+   fun:scan_task_calltf
+   fun:vl_systf_calltf
+}
+
+{
+   FreeObj_mem2_0
+   Memcheck:Addr2
+   fun:vpi_FreeObject
+   fun:vpi_free_object
+   fun:scan_task_calltf
+   fun:vl_systf_calltf
+}
+
+{
+   FreeObj_mem4_1
+   Memcheck:Addr4
+   fun:_mti_memfree
+   fun:mti_memfree
+   fun:foreign_free
+   fun:vpi_Free
+   fun:vpi_FreeObject
+   fun:vpi_free_object
+   fun:scan_task_calltf
+   fun:vl_systf_calltf
+}
+
+{
+   zlib_1
+   Memcheck:Cond
+   fun:longest_match
+   fun:deflate_slow
+   fun:deflate
+   fun:uf_Compr
+   fun:uf_FlushCurrentSegment
+   fun:uf_Close
+   fun:ucdbi_save_footer_and_close
+   fun:ucdb_Close
+   fun:vl_ucdb_browse_hierarchy
+   fun:ucdbSave
+   fun:tclprim_cover
+   fun:TclInvokeStringCommand
+}

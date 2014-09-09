@@ -1,0 +1,95 @@
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_mem_mam.svh UVM_REG_HOME/src/reg/uvm_mem_mam.svh
+672c672
+<       top.uvm_report_error("uvm_mem_mam",
+---
+>       top.ovm_report_error("uvm_mem_mam",
+682c682
+<          top.uvm_report_error("uvm_mem_mam",
+---
+>          top.ovm_report_error("uvm_mem_mam",
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_mem.svh UVM_REG_HOME/src/reg/uvm_mem.svh
+2352,2353c2352,2353
+<   printer.print_int("n_bits",get_n_bits(),32, UVM_UNSIGNED);
+<   printer.print_int("size",get_size(),32, UVM_UNSIGNED);
+---
+>   printer.print_field("n_bits",get_n_bits(),32, OVM_UNSIGNED);
+>   printer.print_field("size",get_size(),32, OVM_UNSIGNED);
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_reg_block.svh UVM_REG_HOME/src/reg/uvm_reg_block.svh
+971,972c971
+<   uvm_resource_db#(uvm_reg_block)::set(get_full_name(),
+<                                        "uvm_reg::*", this);
+---
+>   set_config_object("*",{get_full_name(),".","uvm_reg::*"},this,0);
+1259a1259,1261
+>    `uvm_warning("NOT_SUPPORTED", {"find_blocks not supported in this port to OVM"})
+>    return 0;
+>    /*
+1274a1277
+>    */
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_reg_map.svh UVM_REG_HOME/src/reg/uvm_reg_map.svh
+1677a1678
+>     uvm_event end_event = rw.events.get("end");
+1681c1682
+<     rw.end_event.wait_on();
+---
+>     end_event.wait_on();
+1701a1703
+>     uvm_event end_event = rw.events.get("end");
+1705c1707
+<     rw.end_event.wait_on();
+---
+>     end_event.wait_on();
+1803c1805,1808
+<       bus_req.end_event.wait_on();
+---
+>       begin
+>         uvm_event end_event = bus_req.events.get("end");
+>         end_event.wait_on();
+>       end
+1896c1901
+<        
+---
+> 
+1927c1932,1935
+<       bus_req.end_event.wait_on();
+---
+>       begin
+>         uvm_event end_event = bus_req.events.get("end");
+>         end_event.wait_on();
+>       end
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_reg_model.svh UVM_REG_HOME/src/reg/uvm_reg_model.svh
+453c453
+<         comp.uvm_report_fatal("NO_SET_CFG", {"no set_config to field '", FIELD,
+---
+>         comp.ovm_report_fatal("NO_SET_CFG", {"no set_config to field '", FIELD,
+457c457
+<         comp.uvm_report_warning("NO_SET_CFG", {"no set_config to field '", FIELD,
+---
+>         comp.ovm_report_warning("NO_SET_CFG", {"no set_config to field '", FIELD,
+465c465
+<         comp.uvm_report_fatal( "GET_CFG_TYPE_FAIL",
+---
+>         comp.ovm_report_fatal( "GET_CFG_TYPE_FAIL",
+470c470
+<         comp.uvm_report_warning( "GET_CFG_TYPE_FAIL",
+---
+>         comp.ovm_report_warning( "GET_CFG_TYPE_FAIL",
+541a542
+> 
+diff --strip-trailing-cr -I '// \$Id:' -r UVM_HOME/distrib/src/reg/uvm_reg_sequence.svh UVM_REG_HOME/src/reg/uvm_reg_sequence.svh
+111c111
+<   uvm_sequencer #(uvm_reg_item) reg_seqr;
+---
+>   `UVM_REG_SEQR #(uvm_reg_item) reg_seqr;
+496a497,501
+>    static string type_name = "uvm_reg_sequence";
+>    virtual function string get_type_name();
+>      return type_name;
+>    endfunction
+> 
+738,739c743,744
+<   virtual function void check_phase(uvm_phase phase);
+<      super.check_phase(phase);
+---
+>   virtual function void check();
+>     super.check();

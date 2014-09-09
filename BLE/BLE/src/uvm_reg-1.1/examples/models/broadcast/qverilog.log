@@ -1,0 +1,7 @@
+QuestaSim qverilog 10.0b Compiler 2011.05 May  5 2011
+/home/cad/eda/questa_sim/bin/../linux/qverilog tb_top.sv 
+** Error: tb_top.sv(22): Cannot find `include file "apb.sv" in directories:
+    /home/cad/eda/questa_sim/ovm-2.1.1/../verilog_src/ovm-2.1.1/src, /home/cad/eda/questa_sim/uvm-1.0p1/../verilog_src/uvm-1.0p1/src
+-- Compiling module blk
+-- Compiling module soc
+-- Compiling module tb_top

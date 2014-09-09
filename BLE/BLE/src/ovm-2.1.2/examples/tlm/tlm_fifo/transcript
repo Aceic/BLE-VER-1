@@ -1,0 +1,5 @@
+# vsim -do vsim.do -c test 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: Failed to find design unit work.test.
+# Optimization failed
+# Error loading design

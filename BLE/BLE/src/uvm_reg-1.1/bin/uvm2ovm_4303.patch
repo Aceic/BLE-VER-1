@@ -1,0 +1,65 @@
+Only in /home/acaic/Desktop/spi_regmodel: doc
+diff -r /home/acaic/Desktop/spi_regmodel/package/spi_pkg.sv /tmp/F3G6p4SEjs/package/spi_pkg.sv
+4a5,6
+>   import uvm_reg_pkg::*;
+> 
+7a10,11
+>   `include "uvm_reg_macros.svh"
+> 
+Only in /home/acaic/Desktop/spi_regmodel: sim
+Only in /home/acaic/Desktop/spi_regmodel/slave: 1
+diff -r /home/acaic/Desktop/spi_regmodel/tb/spi_tb.sv /tmp/F3G6p4SEjs/tb/spi_tb.sv
+27c27
+< //    // if(! ovm_config_db#(spi_env_cfg)::get(this, "", "spi_env_cfg", spi_cfg)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //    // if(! ovm_config_db#(spi_env_cfg)::get(this, "", "spi_env_cfg", spi_cfg)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/tb/top.sv /tmp/F3G6p4SEjs/tb/top.sv
+8a9,11
+> 
+>  import uvm_reg_pkg::*;
+> 
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb128mode01.sv /tmp/F3G6p4SEjs/test/test_lsb128mode01.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb128mode10.sv /tmp/F3G6p4SEjs/test/test_lsb128mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb32mode10.sv /tmp/F3G6p4SEjs/test/test_lsb32mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb64mode10.sv /tmp/F3G6p4SEjs/test/test_lsb64mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb96mode10.sv /tmp/F3G6p4SEjs/test/test_lsb96mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb128mode10.sv /tmp/F3G6p4SEjs/test/test_msb128mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb32mode10.sv /tmp/F3G6p4SEjs/test/test_msb32mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb64mode10.sv /tmp/F3G6p4SEjs/test/test_msb64mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb96mode10.sv /tmp/F3G6p4SEjs/test/test_msb96mode10.sv
+19c19
+< //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+---
+> // //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support ovm_config_db -*- FIXME OVM does not support uvm_config_db

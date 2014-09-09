@@ -1,0 +1,29 @@
+gpp no  _LARGEFILE64_SOURCE 1
+gpp no  _LARGEFILE_SOURCE 1
+gpp no  _XOPEN_SOURCE 500
+gpp no  __DEPRECATED 1
+gpp no  __EXCEPTIONS 1
+gpp no  __EXTENSIONS__ 1
+gpp no  __GXX_WEAK__ 1
+gnu no  __GCC_NEW_VARARGS__ 1
+gnu no  __GXX_ABI_VERSION 102
+gnu no  __HAVE_BUILTIN_SETJMP__ 1
+gnu no  __NO_INLINE__ 1
+gnu no  __PRAGMA_REDEFINE_EXTNAME 1
+gnu no  __PTRDIFF_TYPE__ int
+gnu no  __REGISTER_PREFIX__ 
+gnu no  __SIZE_TYPE__ unsigned int
+gnu no  __SVR4 1
+gnu no  __USER_LABEL_PREFIX__ 
+gnu no  __WCHAR_TYPE__ long int
+gnu no  __WINT_TYPE__ long int
+gnu no  __sparc 1
+gnu no  __sparc__ 1
+gnu no  __sun 1
+gnu no  __sun__ 1
+gnu no  __svr4__ 1
+gnu no  __unix 1
+gnu no  __unix__ 1
+gnu no  sparc 1
+gnu no  sun 1
+gnu no  unix 1

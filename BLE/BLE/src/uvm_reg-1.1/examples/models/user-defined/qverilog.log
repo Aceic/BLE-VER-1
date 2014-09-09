@@ -1,0 +1,17 @@
+QuestaSim qverilog 10.0b Compiler 2011.05 May  5 2011
+/home/cad/eda/questa_sim/bin/../linux/qverilog tb_run.sv 
+-- Compiling module dut
+** Note: (qverilog-2286) Using implicit +incdir+/home/cad/eda/questa_sim/ovm-2.1.1/../verilog_src/ovm-2.1.1/src from import ovm_pkg
+** Error: tb_run.sv(26): Cannot find `include file "uvm_reg_macros.svh" in directories:
+    /home/cad/eda/questa_sim/ovm-2.1.1/../verilog_src/ovm-2.1.1/src, /home/cad/eda/questa_sim/uvm-1.0p1/../verilog_src/uvm-1.0p1/src
+-- Compiling program tb
+-- Importing package mtiOvm.ovm_pkg (ovm-2.1.1 Built-in)
+** Error: tb_run.sv(31): Could not find the package (uvm_reg_pkg).  Design read will continue, but expect a cascade of errors after this failure.  Furthermore if you experience a vopt-7 error immediately before this error then please check the package names or the library search paths on the command line.
+** Error: regmodel.sv(33): near "uvm_reg_cbs": syntax error, unexpected IDENTIFIER
+** Error: regmodel.sv(33): Error in class extension specification.
+** Error: regmodel.sv(35): near "fld": syntax error, unexpected IDENTIFIER, expecting ')'
+** Error: regmodel.sv(50): near "uvm_reg": syntax error, unexpected IDENTIFIER
+** Error: regmodel.sv(50): Error in class extension specification.
+** Error: regmodel.sv(52): Invalid type 'uvm_reg_field'. Please check the type of the variable 'value'.
+** Error: regmodel.sv(54): (qverilog-2163) Macro `uvm_object_utils is undefined.
+** Error: regmodel.sv(54): near "(": syntax error, unexpected '(', expecting function or task

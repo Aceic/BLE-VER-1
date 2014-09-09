@@ -1,0 +1,26 @@
+gpp no  __DEPRECATED 1
+gpp no  __EXCEPTIONS 1
+gpp no  _GNU_SOURCE 1
+gpp no  __GXX_WEAK__ 1
+gnu no  __ELF__ 1
+gnu no  __gnu_linux__ 1
+gnu no  __GXX_ABI_VERSION 102
+gnu no  __HAVE_BUILTIN_SETJMP__ 1
+gnu no  __i386__ 1
+gnu no  __i386 1
+gnu no  i386 1
+gnu no  __linux__ 1
+gnu no  __linux 1
+gnu no  linux 1
+gnu no  __NO_INLINE__ 1
+gnu no  __PTRDIFF_TYPE__ int
+gnu no  __REGISTER_PREFIX__ 
+gnu no  __SIZE_TYPE__ unsigned int
+gnu no  __tune_i686__ 1
+gnu no  __tune_pentiumpro__ 1
+gnu no  __unix__ 1
+gnu no  __unix 1
+gnu no  unix 1
+gnu no  __USER_LABEL_PREFIX__ 
+gnu no  __WCHAR_TYPE__ long int
+gnu no  __WINT_TYPE__ unsigned int

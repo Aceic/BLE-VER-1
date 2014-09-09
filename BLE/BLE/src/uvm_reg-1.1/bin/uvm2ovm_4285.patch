@@ -1,0 +1,744 @@
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/bus_driver.sv /tmp/fXkusqlr15/bus_agent/bus_driver.sv
+13c13
+<         `ovm_info("Build Phase", "Driver build_phase", UVM_LOW)
+---
+>         `ovm_info("Build Phase", "Driver build_phase", OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/bus_monitor.sv /tmp/fXkusqlr15/bus_agent/bus_monitor.sv
+19c19
+<      `ovm_info("Build Phase","Monitor build Phase",UVM_LOW)
+---
+>      `ovm_info("Build Phase","Monitor build Phase",OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/bus_sequencer.sv /tmp/fXkusqlr15/bus_agent/bus_sequencer.sv
+10c10
+<    `ovm_info("Build Phase","sequencer build phase", UVM_LOW);
+---
+>    `ovm_info("Build Phase","sequencer build phase", OVM_LOW);
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/bus_sequence.sv /tmp/fXkusqlr15/bus_agent/bus_sequence.sv
+38c38
+<    uvm_object       name;
+---
+>    ovm_object       name;
+43c43
+<    uvm_path_e       path;
+---
+>    ovm_path_e       path;
+57c57
+< 	       `ovm_info("Sequence From Master",$sformatf("printing from sequence \n %s", req.sprint()),UVM_LOW) 
+---
+> 	       `ovm_info("Sequence From Master",$sformatf("printing from sequence \n %s", req.sprint()),OVM_LOW) 
+71c71
+<                              `ovm_info("Bus Write Sequence" , "Write Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Write Sequence" , "Write Register Sequence started", OVM_LOW);
+73c73
+<                               `ovm_info("Bus Write Sequence", $sformatf("Write Register Sequence finished, Data written at register %s = %h",name_reg.get_name(),wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Write Sequence", $sformatf("Write Register Sequence finished, Data written at register %s = %h",name_reg.get_name(),wr_data), OVM_LOW); 
+78c78
+<                              `ovm_info("Bus Write Sequence", "Write only on DUT Register Field Sequence started", UVM_LOW); 
+---
+>                              `ovm_info("Bus Write Sequence", "Write only on DUT Register Field Sequence started", OVM_LOW); 
+80c80
+<                               `ovm_info("Bus Write Sequence", $sformatf("Write Register Sequence finished, Data written at register %s = %h",name_field.get_name(),wr_data), UVM_LOW);
+---
+>                               `ovm_info("Bus Write Sequence", $sformatf("Write Register Sequence finished, Data written at register %s = %h",name_field.get_name(),wr_data), OVM_LOW);
+89c89
+<                              `ovm_info("Bus Read Sequence" , "Read Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Read Sequence" , "Read Register Sequence started", OVM_LOW);
+91c91
+<                               `ovm_info("Bus Read Sequence", $sformatf("Read Register Sequence finished, Data Read from register %s = %h",name_reg.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Read Sequence", $sformatf("Read Register Sequence finished, Data Read from register %s = %h",name_reg.get_name(),rd_data), OVM_LOW); 
+96c96
+<                              `ovm_info("Bus Read Sequence" , "Read Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Read Sequence" , "Read Register Sequence started", OVM_LOW);
+98c98
+<                               `ovm_info("Bus Read Sequence", $sformatf("Read Register Field Sequence finished, Data Read from register field %s = %h",name_field.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Read Sequence", $sformatf("Read Register Field Sequence finished, Data Read from register field %s = %h",name_field.get_name(),rd_data), OVM_LOW); 
+107c107
+<                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", OVM_LOW);
+109c109
+<                               `ovm_info("Bus Set Sequence", $sformatf("Set Register Sequence finished, Data set at register %s = %h",name_reg.get_name(),wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Set Sequence", $sformatf("Set Register Sequence finished, Data set at register %s = %h",name_reg.get_name(),wr_data), OVM_LOW); 
+114c114
+<                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", OVM_LOW);
+116c116
+<                               `ovm_info("Bus Set Sequence", $sformatf("Set Register Sequence finished, Data Set at register %s = %h",name_field.get_name(),wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Set Sequence", $sformatf("Set Register Sequence finished, Data Set at register %s = %h",name_field.get_name(),wr_data), OVM_LOW); 
+125c125
+<                              `ovm_info("Bus Get Sequence" , "Get Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Get Sequence" , "Get Register Sequence started", OVM_LOW);
+127c127
+<                               `ovm_info("Bus Get Sequence", $sformatf("Get Register Sequence finished, Get data from register %s = %h",name_reg.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Get Sequence", $sformatf("Get Register Sequence finished, Get data from register %s = %h",name_reg.get_name(),rd_data), OVM_LOW); 
+132c132
+<                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Set Sequence" , "Set Register Sequence started", OVM_LOW);
+134c134
+<                               `ovm_info("Bus Set Sequence", $sformatf("Get Register Sequence finished, Get Data from register %s = %h",name_field.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Set Sequence", $sformatf("Get Register Sequence finished, Get Data from register %s = %h",name_field.get_name(),rd_data), OVM_LOW); 
+143c143
+<                              `ovm_info("Bus Update Sequence" , "Update Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Update Sequence" , "Update Register Sequence started", OVM_LOW);
+146c146
+<                               `ovm_info("Bus Get Sequence", $sformatf("Update Register Sequence finished, Update data at RTL register %s = %h",name_reg.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Get Sequence", $sformatf("Update Register Sequence finished, Update data at RTL register %s = %h",name_reg.get_name(),rd_data), OVM_LOW); 
+151c151
+<                              `ovm_info("Bus Update Sequence" , "Update Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Update Sequence" , "Update Register Sequence started", OVM_LOW);
+154c154
+<                               `ovm_info("Bus Update Sequence", $sformatf("Update Register Sequence finished, Update Data at register %s = %h",name_field.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Update Sequence", $sformatf("Update Register Sequence finished, Update Data at register %s = %h",name_field.get_name(),rd_data), OVM_LOW); 
+163c163
+<                              `ovm_info("Bus Mirror Sequence" , "Mirror Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Mirror Sequence" , "Mirror Register Sequence started", OVM_LOW);
+165c165
+<                               `ovm_info("Bus Mirror Sequence", $sformatf("Mirror Register Sequence finished, Update data at RTL register %s",name_reg.get_name), UVM_LOW); 
+---
+>                               `ovm_info("Bus Mirror Sequence", $sformatf("Mirror Register Sequence finished, Update data at RTL register %s",name_reg.get_name), OVM_LOW); 
+170c170
+<                              `ovm_info("Bus Mirror Sequence" , "Mirror Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Mirror Sequence" , "Mirror Register Sequence started", OVM_LOW);
+172c172
+<                               `ovm_info("Bus Mirror Sequence", $sformatf("Mirror Register Sequence finished, Update data at RTL register %s",name_field.get_name), UVM_LOW); 
+---
+>                               `ovm_info("Bus Mirror Sequence", $sformatf("Mirror Register Sequence finished, Update data at RTL register %s",name_field.get_name), OVM_LOW); 
+180c180
+<                              `ovm_info("Bus Perdict Sequence" , "Perdict Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Perdict Sequence" , "Perdict Sequence started", OVM_LOW);
+182c182
+<                               `ovm_info("Bus Predict Sequence", $sformatf("Perdict Register Sequence finished, Predicted data at register %s = %h",name_reg.get_name, wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Predict Sequence", $sformatf("Perdict Register Sequence finished, Predicted data at register %s = %h",name_reg.get_name, wr_data), OVM_LOW); 
+187c187
+<                              `ovm_info("Bus Predict Sequence" , "Predict Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Predict Sequence" , "Predict Register Sequence started", OVM_LOW);
+189c189
+<                               `ovm_info("Bus Predict Sequence", $sformatf("Predict Register Sequence finished, Predict data at register field %s = %h",name_field.get_name, wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Predict Sequence", $sformatf("Predict Register Sequence finished, Predict data at register field %s = %h",name_field.get_name, wr_data), OVM_LOW); 
+197c197
+<                              `ovm_info("Bus Poke Sequence" , "Write Poke Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Poke Sequence" , "Write Poke Sequence started", OVM_LOW);
+199c199
+<                               `ovm_info("Bus Poke Sequence", $sformatf("Poke Register Sequence finished, Data written at register %s = %h",name_reg.get_name(),wr_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Poke Sequence", $sformatf("Poke Register Sequence finished, Data written at register %s = %h",name_reg.get_name(),wr_data), OVM_LOW); 
+204c204
+<                              `ovm_info("Bus Poke Sequence", "Poke only on DUT Register Field Sequence started", UVM_LOW); 
+---
+>                              `ovm_info("Bus Poke Sequence", "Poke only on DUT Register Field Sequence started", OVM_LOW); 
+206c206
+<                               `ovm_info("Bus Poke Sequence", $sformatf("Poke Register Sequence finished, Data written at register %s = %h",name_field.get_name(),wr_data), UVM_LOW);
+---
+>                               `ovm_info("Bus Poke Sequence", $sformatf("Poke Register Sequence finished, Data written at register %s = %h",name_field.get_name(),wr_data), OVM_LOW);
+215c215
+<                              `ovm_info("Bus Peek Sequence" , "Peek Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Peek Sequence" , "Peek Register Sequence started", OVM_LOW);
+217c217
+<                               `ovm_info("Bus Peek Sequence", $sformatf("Peek Register Sequence finished, Data Read from register %s = %h",name_reg.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Peek Sequence", $sformatf("Peek Register Sequence finished, Data Read from register %s = %h",name_reg.get_name(),rd_data), OVM_LOW); 
+222c222
+<                              `ovm_info("Bus Peek Sequence" , "Peek Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Peek Sequence" , "Peek Register Sequence started", OVM_LOW);
+224c224
+<                               `ovm_info("Bus Peek Sequence", $sformatf("Peek Register Field Sequence finished, Data Read from register field %s = %h",name_field.get_name(),rd_data), UVM_LOW); 
+---
+>                               `ovm_info("Bus Peek Sequence", $sformatf("Peek Register Field Sequence finished, Data Read from register field %s = %h",name_field.get_name(),rd_data), OVM_LOW); 
+232c232
+<                              `ovm_info("Bus Randomize Sequence" , "Randomize Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Randomize Sequence" , "Randomize Register Sequence started", OVM_LOW);
+234c234
+<                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize Register Sequence finished for register %s ",name_reg.get_name()), UVM_LOW); 
+---
+>                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize Register Sequence finished for register %s ",name_reg.get_name()), OVM_LOW); 
+239c239
+<                              `ovm_info("Bus Randomize Sequence" , "Randomize Register Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Randomize Sequence" , "Randomize Register Sequence started", OVM_LOW);
+241c241
+<                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize Register Sequence finished for register Field %s ",name_reg.get_name()), UVM_LOW); 
+---
+>                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize Register Sequence finished for register Field %s ",name_reg.get_name()), OVM_LOW); 
+245c245
+<                              `ovm_info("Bus Randomize Sequence" , "Randomize BLOCK Sequence started", UVM_LOW);
+---
+>                              `ovm_info("Bus Randomize Sequence" , "Randomize BLOCK Sequence started", OVM_LOW);
+247c247
+<                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize BLOCK Sequence finished for BLOCK  %s ",name.get_name()), UVM_LOW); 
+---
+>                               `ovm_info("Bus Randomize Sequence", $sformatf("Randomize BLOCK Sequence finished for BLOCK  %s ",name.get_name()), OVM_LOW); 
+293c293
+<           `ovm_info("Check Sequence", $sformatf("Reset Read Successfull for Register %s : Expected Value = %h , Actual Value = %h", spi_regs[i].get_name(), ref_data, rd_data), UVM_LOW)
+---
+>           `ovm_info("Check Sequence", $sformatf("Reset Read Successfull for Register %s : Expected Value = %h , Actual Value = %h", spi_regs[i].get_name(), ref_data, rd_data), OVM_LOW)
+318c318
+< //               `ovm_info("Check Sequence After Writting", $sformatf("Reset Read Successfull for Register %s : Expected Value = %h , Actual Value = %h", spi_regs[i].get_name(), ref_data, rd_data), UVM_LOW)
+---
+> //               `ovm_info("Check Sequence After Writting", $sformatf("Reset Read Successfull for Register %s : Expected Value = %h , Actual Value = %h", spi_regs[i].get_name(), ref_data, rd_data), OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/bus_top.sv /tmp/fXkusqlr15/bus_agent/bus_top.sv
+17c17
+<        `ovm_info("Build Phase","Bus Env Build Phase",UVM_LOW)
+---
+>        `ovm_info("Build Phase","Bus Env Build Phase",OVM_LOW)
+22c22
+<       `ovm_info("Run Phase","Run Phase of Bus Env",UVM_LOW)
+---
+>       `ovm_info("Run Phase","Run Phase of Bus Env",OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/old_bus_sequence.sv /tmp/fXkusqlr15/bus_agent/old_bus_sequence.sv
+47c47
+< 	       `ovm_info("Sequence From Master",$sformatf("printing from sequence \n %s", req.sprint()),UVM_LOW) 
+---
+> 	       `ovm_info("Sequence From Master",$sformatf("printing from sequence \n %s", req.sprint()),OVM_LOW) 
+diff -r /home/acaic/Desktop/spi_regmodel/bus_agent/reg_adp.sv /tmp/fXkusqlr15/bus_agent/reg_adp.sv
+3c3
+<  `uvm_object_utils(reg_adp)
+---
+>  `ovm_object_utils(reg_adp)
+22c22
+<  virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
+---
+>  virtual function ovm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
+35c35
+<   virtual function void bus2reg(uvm_sequence_item bus_item, ref uvm_reg_bus_op rw);
+---
+>   virtual function void bus2reg(ovm_sequence_item bus_item, ref uvm_reg_bus_op rw);
+42c42
+<       `uvm_fatal("Register Adapter", "Type of bus_item not matched with transaction")
+---
+>       `ovm_fatal("Register Adapter", "Type of bus_item not matched with transaction")
+Only in /home/acaic/Desktop/spi_regmodel: doc
+diff -r /home/acaic/Desktop/spi_regmodel/package/general_task.sv /tmp/fXkusqlr15/package/general_task.sv
+1c1
+<   task configure_register(input string reg_field, acess,  uvm_object name,uvm_path_e path = UVM_BACKDOOR, bit reset,  uvm_reg_data_t wr_data , output uvm_reg_data_t rd_data );
+---
+>   task configure_register(input string reg_field, acess,  ovm_object name,ovm_path_e path = UVM_BACKDOOR, bit reset,  uvm_reg_data_t wr_data , output uvm_reg_data_t rd_data );
+17c17
+<         else `uvm_error("Register Configuration","!!!!Invalid Parameter passing at reg_field, Pass either \"REG\" or \"FIELD\"!!!!");   
+---
+>         else `ovm_error("Register Configuration","!!!!Invalid Parameter passing at reg_field, Pass either \"REG\" or \"FIELD\"!!!!");   
+diff -r /home/acaic/Desktop/spi_regmodel/package/spi_pkg.sv /tmp/fXkusqlr15/package/spi_pkg.sv
+3c3,5
+<   //import uvm_pkg::*;
+---
+>   import uvm_reg_pkg::*;
+> 
+>   //import ovm_pkg::*;
+6c8,10
+<   //`include "uvm_macros.svh"
+---
+>   `include "uvm_reg_macros.svh"
+> 
+>   //`include "ovm_macros.svh"
+diff -r /home/acaic/Desktop/spi_regmodel/register_model/spi_all_reg.sv /tmp/fXkusqlr15/register_model/spi_all_reg.sv
+7c7
+<   `uvm_object_utils(RegSPIData_reg)
+---
+>   `ovm_object_utils(RegSPIData_reg)
+33c33
+<   `uvm_object_utils(RegSPICtrl_reg)
+---
+>   `ovm_object_utils(RegSPICtrl_reg)
+113c113
+<   `uvm_object_utils(RegSPIDivider_reg)
+---
+>   `ovm_object_utils(RegSPIDivider_reg)
+134c134
+<   `uvm_object_utils(RegSPISS_reg)
+---
+>   `ovm_object_utils(RegSPISS_reg)
+157c157
+<  class spi_reg_access_wrapper extends uvm_object;
+---
+>  class spi_reg_access_wrapper extends ovm_object;
+159c159
+<    `uvm_object_utils(spi_reg_access_wrapper)
+---
+>    `ovm_object_utils(spi_reg_access_wrapper)
+diff -r /home/acaic/Desktop/spi_regmodel/register_model/spi_reg_block.sv /tmp/fXkusqlr15/register_model/spi_reg_block.sv
+5c5
+<  `uvm_object_utils(spi_reg_block)
+---
+>  `ovm_object_utils(spi_reg_block)
+71c71
+<         `uvm_info(get_name(),$sformatf("path is : %s",path),UVM_HIGH)
+---
+>         `ovm_info(get_name(),$sformatf("path is : %s",path),OVM_HIGH)
+Only in /home/acaic/Desktop/spi_regmodel: sim
+Only in /home/acaic/Desktop/spi_regmodel/slave: 1
+diff -r /home/acaic/Desktop/spi_regmodel/slave/slave_driver.sv /tmp/fXkusqlr15/slave/slave_driver.sv
+20c20
+<         `ovm_info("Build Phase", "Driver build_phase", UVM_LOW)
+---
+>         `ovm_info("Build Phase", "Driver build_phase", OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/slave/slave_sequence.sv /tmp/fXkusqlr15/slave/slave_sequence.sv
+34c34
+< 	       `ovm_info("Sequence From Slave",$sformatf("printing from sequence \n %s", req.sprint()),UVM_LOW) 
+---
+> 	       `ovm_info("Sequence From Slave",$sformatf("printing from sequence \n %s", req.sprint()),OVM_LOW) 
+diff -r /home/acaic/Desktop/spi_regmodel/slave/slave_top.sv /tmp/fXkusqlr15/slave/slave_top.sv
+21c21
+<       `ovm_info("Run Phase","Run Phase of Slave Env",UVM_LOW)
+---
+>       `ovm_info("Run Phase","Run Phase of Slave Env",OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/tb/spi_scoreboard.sv /tmp/fXkusqlr15/tb/spi_scoreboard.sv
+166c166
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+178c178
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+192c192
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+204c204
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+218c218
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+230c230
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+244c244
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+256c256
+<                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), UVM_HIGH)
+---
+>                               `ovm_info("SB- Slave tx", $sformatf(" transmitted bit %h && received bit %h", miso_slave[i], miso_master[i]), OVM_HIGH)
+264c264
+<                `ovm_info("SB- Slave Transmit Master Recieve",$sformatf("No of bits = %d in Data Transmitted by Slave = %h and data Recived by Master = %h", char_len, miso_slave, miso_master), UVM_LOW)
+---
+>                `ovm_info("SB- Slave Transmit Master Recieve",$sformatf("No of bits = %d in Data Transmitted by Slave = %h and data Recived by Master = %h", char_len, miso_slave, miso_master), OVM_LOW)
+276c276
+<                    `ovm_info("SB- Master Transmit", $sformatf("transmitted bit %h matched with recieved bit %h", mosi_master[i], mosi_slave[i]),UVM_HIGH);
+---
+>                    `ovm_info("SB- Master Transmit", $sformatf("transmitted bit %h matched with recieved bit %h", mosi_master[i], mosi_slave[i]),OVM_HIGH);
+283c283
+<                `ovm_info("SB- Master Transmit Slave Recieve",$sformatf("No of bits thats are transmitted = %d in transmitted data = %h and received data = %h ", char_len, mosi_master, mosi_slave), UVM_LOW)
+---
+>                `ovm_info("SB- Master Transmit Slave Recieve",$sformatf("No of bits thats are transmitted = %d in transmitted data = %h and received data = %h ", char_len, mosi_master, mosi_slave), OVM_LOW)
+diff -r /home/acaic/Desktop/spi_regmodel/tb/spi_tb.sv /tmp/fXkusqlr15/tb/spi_tb.sv
+27c27
+<    // if(! ovm_config_db#(spi_env_cfg)::get(this, "", "spi_env_cfg", spi_cfg))
+---
+> //    // if(! ovm_config_db#(spi_env_cfg)::get(this, "", "spi_env_cfg", spi_cfg)) -*- FIXME OVM does not support uvm_config_db
+60c60
+<     `ovm_info("build_phase", "tb top build Phase", UVM_NONE)
+---
+>     `ovm_info("build_phase", "tb top build Phase", OVM_NONE)
+91c91
+<     `ovm_info("run phase", "spi tb top run Phase", UVM_NONE)
+---
+>     `ovm_info("run phase", "spi tb top run Phase", OVM_NONE)
+diff -r /home/acaic/Desktop/spi_regmodel/tb/top.sv /tmp/fXkusqlr15/tb/top.sv
+5a6,8
+> 
+>  import uvm_reg_pkg::*;
+> 
+diff -r /home/acaic/Desktop/spi_regmodel/tb/virtual_sequence.sv /tmp/fXkusqlr15/tb/virtual_sequence.sv
+49,50c49,50
+<    uvm_path_e     path;
+<    uvm_object       name;
+---
+>    ovm_path_e     path;
+>    ovm_object       name;
+diff -r /home/acaic/Desktop/spi_regmodel/test/reg_lsb128mode10.sv /tmp/fXkusqlr15/test/reg_lsb128mode10.sv
+25c25
+<     `ovm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb128mode01.sv /tmp/fXkusqlr15/test/test_lsb128mode01.sv
+3c3
+<  `uvm_component_utils(test_lsb128mode01)
+---
+>  `ovm_component_utils(test_lsb128mode01)
+10c10
+<    function new(string name ="test_lsb128mode01", uvm_component parent);
+---
+>    function new(string name ="test_lsb128mode01", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+76c76
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb128mode10.sv /tmp/fXkusqlr15/test/test_lsb128mode10.sv
+3c3
+<  `uvm_component_utils(test_lsb128mode10)
+---
+>  `ovm_component_utils(test_lsb128mode10)
+10c10
+<    function new(string name ="test_lsb128mode10", uvm_component parent);
+---
+>    function new(string name ="test_lsb128mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb32mode10.sv /tmp/fXkusqlr15/test/test_lsb32mode10.sv
+3c3
+<  `uvm_component_utils(test_lsb32mode10)
+---
+>  `ovm_component_utils(test_lsb32mode10)
+10c10
+<    function new(string name ="test_lsb32mode10", uvm_component parent);
+---
+>    function new(string name ="test_lsb32mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb64mode10.sv /tmp/fXkusqlr15/test/test_lsb64mode10.sv
+3c3
+<  `uvm_component_utils(test_lsb64mode10)
+---
+>  `ovm_component_utils(test_lsb64mode10)
+10c10
+<    function new(string name ="test_lsb64mode10", uvm_component parent);
+---
+>    function new(string name ="test_lsb64mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_lsb96mode10.sv /tmp/fXkusqlr15/test/test_lsb96mode10.sv
+3c3
+<  `uvm_component_utils(test_lsb96mode10)
+---
+>  `ovm_component_utils(test_lsb96mode10)
+10c10
+<    function new(string name ="test_lsb96mode10", uvm_component parent);
+---
+>    function new(string name ="test_lsb96mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb128mode10.sv /tmp/fXkusqlr15/test/test_msb128mode10.sv
+3c3
+<  `uvm_component_utils(test_msb128mode10)
+---
+>  `ovm_component_utils(test_msb128mode10)
+10c10
+<    function new(string name ="test_msb128mode10", uvm_component parent);
+---
+>    function new(string name ="test_msb128mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb32mode10.sv /tmp/fXkusqlr15/test/test_msb32mode10.sv
+3c3
+<  `uvm_component_utils(test_msb32mode10)
+---
+>  `ovm_component_utils(test_msb32mode10)
+10c10
+<    function new(string name ="test_msb32mode10", uvm_component parent);
+---
+>    function new(string name ="test_msb32mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb64mode10.sv /tmp/fXkusqlr15/test/test_msb64mode10.sv
+3c3
+<  `uvm_component_utils(test_msb64mode10)
+---
+>  `ovm_component_utils(test_msb64mode10)
+10c10
+<    function new(string name ="test_msb64mode10", uvm_component parent);
+---
+>    function new(string name ="test_msb64mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_msb96mode10.sv /tmp/fXkusqlr15/test/test_msb96mode10.sv
+3c3
+<  `uvm_component_utils(test_msb96mode10)
+---
+>  `ovm_component_utils(test_msb96mode10)
+10c10
+<    function new(string name ="test_msb96mode10", uvm_component parent);
+---
+>    function new(string name ="test_msb96mode10", ovm_component parent);
+14,15c14,15
+<     function void build_phase(uvm_phase phase);
+<      super.build_phase(phase);
+---
+>     function void build();
+>      super.build();
+18,20c18,20
+<     `uvm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+<       if(!uvm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if))
+<          `uvm_error("build_phase", " NOt able to get interface instance")
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+> //       if(!ovm_config_db#(virtual bus_intf)::get(this, "", "bus_if", bus_if)) -*- FIXME OVM does not support uvm_config_db
+>          `ovm_error("build_phase", " NOt able to get interface instance")
+24,25c24,25
+<     task run_phase(uvm_phase phase);
+<     `uvm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     task run();
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)
+27,28c27,28
+<      phase.raise_objection(this);
+<      //uvm_test_done.set_drain_time(this, 50000);
+---
+>      ovm_test_done.raise_objection(this);
+>      //ovm_test_done.set_drain_time(this, 50000);
+75c75
+<      phase.drop_objection(this);  
+---
+>      ovm_test_done.drop_objection(this);  
+diff -r /home/acaic/Desktop/spi_regmodel/test/test_reset.sv /tmp/fXkusqlr15/test/test_reset.sv
+12c12
+<     `ovm_info("build_phase", "Test Reset build Phase", UVM_NONE)
+---
+>     `ovm_info("build_phase", "Test Reset build Phase", OVM_NONE)
+18c18
+<     `ovm_info("run_phase", "Test Reset run Phase", UVM_NONE)
+---
+>     `ovm_info("run_phase", "Test Reset run Phase", OVM_NONE)

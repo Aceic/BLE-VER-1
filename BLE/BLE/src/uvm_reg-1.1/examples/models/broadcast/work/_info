@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/acaic/Desktop/uvm_reg-1.1/examples/models/broadcast
+vsoc
+Z1 DXx6 sv_std 3 std 0 22 :CP]PHbGOHGT_H:3KF`8L2
+!s100 [O^1MO6GVRaU4GI>H_?0h2
+I7VNn?XOZBRM:F5gd5GoZh0
+VSh`5PMVZ7DQi_fo7Bfgcn0
+Z2 !s105 tb_top_sv_unit
+S1
+Z3 d/home/acaic/Desktop/uvm_reg-1.1/examples/models/broadcast
+w0
+8dut.sv
+Fdut.sv
+L0 57
+Z4 OE;L;10.0b;49
+r1
+!s85 0
+31
+Z5 !s108 1401425658.415636
+Z6 !s107 dut.sv|tb_top.sv|
+Z7 !s90 tb_top.sv|
+Z8 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+vtb_top
+R1
+!s100 jYhka>ZTIS4BWXYJf30c]0
+IdPa^XlcHPmK_Ah9`@3o2:3
+V[LcaLh[SJXomY3Ki^RaI?1
+R2
+S1
+R3
+w0
+8tb_top.sv
+Ftb_top.sv
+L1 25
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+R8

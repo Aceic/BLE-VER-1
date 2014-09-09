@@ -1,0 +1,121 @@
+# EDG C/C++ predefined macro definition file.
+# 
+# The format of the entries in this file is:
+# 
+# mode,!mode,mode   cannot_redefine   macro_name   macro_value
+# 
+# - "mode" is a label from the predefined macro modes table.  The macro is
+#   defined if the mode is set, or if the mode is not set when "!mode" is
+#   used.  The macro is defined if any of the mode tests is TRUE.  The
+#   mode table can be customized, but the current set of supported modes is:
+# 
+#     gnu:	gcc or g++ mode
+#     gcc:	gcc mode
+#     gpp:	g++ mode
+#     cpp:	any C++ mode
+#     strict:	strict C or C++ mode
+# 
+# - cannot_redefine indicates whether the predefined macro may later be
+#   redefined.  The value must be "yes" or "no".
+# 
+# - macro_name is the name of the macro to be defined.
+# 
+# - macro_value is the value to which the macro should be defined.  All of
+#   the characters until the end of the line are used as the macro value.
+# 
+# Created by make_predef_macro_table
+# Mon Jan 23 20:39:13 PST 2006
+# 
+# C compiler information
+# command: /u/dvtbata/vasuc/gcc402/modeltech/gcc-4.0.2-rhe21/bin/gcc
+# 
+# Using built-in specs.
+# Target: i686-pc-linux-gnu
+# Configured with: ../configure --prefix=/u/prod/gnu/gcc/tmp.install.gcc.rhe21/gcc-4.0.2-rhe21 --with-local-prefix=/u/prod/gnu/gcc/tmp.install.gcc.rhe21/gcc-4.0.2-rhe21 --disable-nls --enable-languages=c,c++ --with-gnu-as --with-as=/u/prod/gnu/gcc/tmp.build.gcc.rhe21/binutils-2.14-rhe21/bin/as --with-gnu-ld --with-ld=/u/prod/gnu/gcc/tmp.build.gcc.rhe21/binutils-2.14-rhe21/bin/ld
+# Thread model: posix
+# gcc version 4.0.2
+# 
+# C++ compiler information
+# command: /u/dvtbata/vasuc/gcc402/modeltech/gcc-4.0.2-rhe21/bin/g++
+# 
+# Using built-in specs.
+# Target: i686-pc-linux-gnu
+# Configured with: ../configure --prefix=/u/prod/gnu/gcc/tmp.install.gcc.rhe21/gcc-4.0.2-rhe21 --with-local-prefix=/u/prod/gnu/gcc/tmp.install.gcc.rhe21/gcc-4.0.2-rhe21 --disable-nls --enable-languages=c,c++ --with-gnu-as --with-as=/u/prod/gnu/gcc/tmp.build.gcc.rhe21/binutils-2.14-rhe21/bin/as --with-gnu-ld --with-ld=/u/prod/gnu/gcc/tmp.build.gcc.rhe21/binutils-2.14-rhe21/bin/ld
+# Thread model: posix
+# gcc version 4.0.2
+# 
+gpp no  __DEPRECATED 1
+gpp no  __EXCEPTIONS 1
+gpp no  _GNU_SOURCE 1
+gpp no  __GXX_WEAK__ 1
+gnu no  __CHAR_BIT__ 8
+gnu no  __DBL_DENORM_MIN__ 4.9406564584124654e-324
+gnu no  __DBL_DIG__ 15
+gnu no  __DBL_EPSILON__ 2.2204460492503131e-16
+gnu no  __DBL_HAS_INFINITY__ 1
+gnu no  __DBL_HAS_QUIET_NAN__ 1
+gnu no  __DBL_MANT_DIG__ 53
+gnu no  __DBL_MAX_10_EXP__ 308
+gnu no  __DBL_MAX__ 1.7976931348623157e+308
+gnu no  __DBL_MAX_EXP__ 1024
+gnu no  __DBL_MIN_10_EXP__ (-307)
+gnu no  __DBL_MIN__ 2.2250738585072014e-308
+gnu no  __DBL_MIN_EXP__ (-1021)
+gnu no  __DECIMAL_DIG__ 21
+gnu no  __ELF__ 1
+gnu no  __FINITE_MATH_ONLY__ 0
+gnu no  __FLT_DENORM_MIN__ 1.40129846e-45F
+gnu no  __FLT_DIG__ 6
+gnu no  __FLT_EPSILON__ 1.19209290e-7F
+gnu no  __FLT_EVAL_METHOD__ 2
+gnu no  __FLT_HAS_INFINITY__ 1
+gnu no  __FLT_HAS_QUIET_NAN__ 1
+gnu no  __FLT_MANT_DIG__ 24
+gnu no  __FLT_MAX_10_EXP__ 38
+gnu no  __FLT_MAX__ 3.40282347e+38F
+gnu no  __FLT_MAX_EXP__ 128
+gnu no  __FLT_MIN_10_EXP__ (-37)
+gnu no  __FLT_MIN__ 1.17549435e-38F
+gnu no  __FLT_MIN_EXP__ (-125)
+gnu no  __FLT_RADIX__ 2
+gnu no  __gnu_linux__ 1
+gnu no  __GXX_ABI_VERSION 1002
+gnu no  __i386__ 1
+gnu no  __i386 1
+gnu no  i386 1
+gnu no  __INT_MAX__ 2147483647
+gnu no  __INTMAX_MAX__ 9223372036854775807LL
+gnu no  __INTMAX_TYPE__ long long int
+gnu no  __LDBL_DENORM_MIN__ 3.64519953188247460253e-4951L
+gnu no  __LDBL_DIG__ 18
+gnu no  __LDBL_EPSILON__ 1.08420217248550443401e-19L
+gnu no  __LDBL_HAS_INFINITY__ 1
+gnu no  __LDBL_HAS_QUIET_NAN__ 1
+gnu no  __LDBL_MANT_DIG__ 64
+gnu no  __LDBL_MAX_10_EXP__ 4932
+gnu no  __LDBL_MAX__ 1.18973149535723176502e+4932L
+gnu no  __LDBL_MAX_EXP__ 16384
+gnu no  __LDBL_MIN_10_EXP__ (-4931)
+gnu no  __LDBL_MIN__ 3.36210314311209350626e-4932L
+gnu no  __LDBL_MIN_EXP__ (-16381)
+gnu no  __linux__ 1
+gnu no  __linux 1
+gnu no  linux 1
+gnu no  __LONG_LONG_MAX__ 9223372036854775807LL
+gnu no  __LONG_MAX__ 2147483647L
+gnu no  __NO_INLINE__ 1
+gnu no  __PTRDIFF_TYPE__ int
+gnu no  __REGISTER_PREFIX__ 
+gnu no  __SCHAR_MAX__ 127
+gnu no  __SHRT_MAX__ 32767
+gnu no  __SIZE_TYPE__ unsigned int
+gnu no  __tune_i686__ 1
+gnu no  __tune_pentiumpro__ 1
+gnu no  __UINTMAX_TYPE__ long long unsigned int
+gnu no  __unix__ 1
+gnu no  __unix 1
+gnu no  unix 1
+gnu no  __USER_LABEL_PREFIX__ 
+gnu no  __WCHAR_MAX__ 2147483647
+gnu no  __WCHAR_TYPE__ long int
+gnu no  __WINT_TYPE__ unsigned int

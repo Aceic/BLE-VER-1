@@ -1,0 +1,278 @@
+## 
+## -------------------------------------------------------------
+##    Copyright 2010-2011 Mentor Graphics Corporation
+##    All Rights Reserved Worldwide
+## 
+##    Licensed under the Apache License, Version 2.0 (the
+##    "License"); you may not use this file except in
+##    compliance with the License.  You may obtain a copy of
+##    the License at
+## 
+##        http://www.apache.org/licenses/LICENSE-2.0
+## 
+##    Unless required by applicable law or agreed to in
+##    writing, software distributed under the License is
+##    distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+##    CONDITIONS OF ANY KIND, either express or implied.  See
+##    the License for the specific language governing
+##    permissions and limitations under the License.
+## -------------------------------------------------------------
+## 
+
+#---------------------------------------------------------------
+# Define Variables
+#---------------------------------------------------------------
+
+UVM_REG_HOME ?= ..
+
+
+#main: all
+
+
+##---------------------------------------------------------------
+##
+## HELP 
+##
+##---------------------------------------------------------------
+
+help:
+	@echo ""
+	@echo "Typical Usage:"
+	@echo ""
+	@echo "  cd <example directory>"
+	@echo "  make -f Makefile.questa OVM_HOME=<path> all"
+	@echo ""
+	@echo "  The OVM_HOME argument overrides any OVM_HOME"
+	@echo "  environment variable."
+	@echo ""
+	@echo "Available targets:"
+	@echo ""
+	@echo "  all         - compiles all libs, the example, then runs"
+	@echo "  clean       - removes all derived files except libs"
+	@echo "  clean-all   - removes all derived files including libs"
+	@echo "  prepare     - compile DPI, OVM, and UVM REG libs"
+	@echo "                into the LIBDIR directory (see below)"
+	@echo ""
+	@echo "Variables:"
+	@echo ""
+	@echo "  Specify any of the following on the make command line"
+	@echo "  or in an environment variable of the same name. Command"
+	@echo "  line arguments override environment variables. "
+	@echo ""
+	@echo "  OVM_HOME         - root directory of the OVM library [$(OVM_HOME)]"
+	@echo "  UVM_REG_HOME     - root directory of the UVM_REG library [$(UVM_REG_HOME)]"
+	@echo ""
+	@echo "  PLATFORM         - linux, linux_x86_64, or win32 [$(PLATFORM)]"
+	@echo "  LIBDIR           - DPI/OVM/UVM Reg library location [$(LIBDIR)]"
+	@echo ""
+	@echo "  OVM_VLOG_OPT     - add specified options when compiling OVM lib"
+	@echo "  UVM_REG_VLOG_OPT - add specified options when compiling UVM Reg lib"
+	@echo "  VLOG_OPT         - add specified options when compiling example"
+	@echo "  VSIM_OPT         - add specified options when running example"
+	@echo ""
+
+
+##------------------------------------------------------------------------------
+##
+## UVM_DPI_LIB
+##
+##------------------------------------------------------------------------------
+# If using Linux, no need to build. Precompiled libs ship with package.
+#
+# If USES_DPI is set, enables compilation and loading of DPI
+# libraries. Enabling DPI adds +acc on command line, which
+# may adversely affect simulator performance.
+
+USES_DPI = 1
+ifdef UVM_NO_DPI
+  USES_DPI=0
+endif
+
+LIBDIR       ?= $(UVM_REG_HOME)/lib-questa
+BUILTIN_LIBDIR  ?= $(UVM_REG_HOME)/lib-questa
+GCC          ?= gcc
+WIN_GCC      ?= $(MTI_HOME)/gcc-4.2.1-mingw32vc9/bin/g++.exe
+BITS         ?= 32
+PLATFORM     ?= linux
+DPI_SRC      ?= $(UVM_REG_HOME)/src/dpi/uvm_dpi.cc
+GCC_OPT      ?=
+
+GCCCMD =  $(GCC) \
+          $(GCC_OPT) \
+          -fPIC \
+          -DQUESTA \
+          -g \
+          -W \
+          -shared \
+          -x c \
+          -I$(MTI_HOME)/include \
+          $(DPI_SRC)
+
+GCC_WINCMD = \
+        $(WIN_GCC) \
+        $(GCC_OPT) \
+        -g \
+        -DQUESTA \
+        -shared \
+        -Bsymbolic \
+        -I$(MTI_HOME)/include \
+        $(DPI_SRC) \
+        -o $(LIBDIR)/win32/uvm_dpi.dll \
+		$(MTI_HOME)/win32/mtipli.dll -lregex
+
+##------------------------------------------------------------------------------
+## OVM_LIB
+##------------------------------------------------------------------------------
+
+OVM_VLOG_OPT ?=
+#OVM_HOME     ?=no-default
+OVM_HOME     ?=~/eda/questasim/verilog_src/
+
+ovm: $(OVM_PKG)
+
+##------------------------------------------------------------------------------
+## UVM_REG_LIB
+##------------------------------------------------------------------------------
+
+UVM_REG_VLOG_OPT ?=
+
+##------------------------------------------------------------------------------
+## EXAMPLES & TESTS
+##
+## Do not use directy. Run examples from the local Makefile in
+## each example directory.
+##------------------------------------------------------------------------------
+
+EXAMPLES := $(shell find $(UVM_REG_HOME)/examples -iname Makefile.questa -print)
+EXAMPLE_DIRS = $(patsubst %/Makefile.questa,%, $(EXAMPLES) )
+EXAMPLE_LOGS = $(patsubst %,%/questa.log, $(EXAMPLE_DIRS) )
+EXAMPLE_CMDS = $(foreach DIR,$(EXAMPLE_DIRS), \
+  pushd $(DIR); \
+  echo ""; \
+  echo "** "; \
+  echo "** Running example $(DIR)"; \
+  echo "** "; \
+  echo ""; \
+  make -f Makefile.questa all; \
+  popd ;)
+
+VLOG_OPT ?=
+VSIM_OPT ?=
+
+ifeq ($(USES_DPI),1)
+  DPI_LIB_VSIM_OPT = -sv_lib $(BUILTIN_LIBDIR)/$(PLATFORM)/uvm_dpi 
+  DPI_LIB_VLOG_OPT = +acc=rmb
+else
+  DPI_LIB_VSIM_OPT = 
+  DPI_LIB_VLOG_OPT = 
+endif
+
+#
+# These VLOG and VSIM values are used here,
+# but also used in the examples and tests.
+#
+VLOG =  vlog \
+        $(VLOG_OPT) \
+        $(DPI_LIB_VLOG_OPT) \
+        $(OPT_C) \
+        +incdir+$(OVM_HOME)/src \
+        +incdir+$(UVM_REG_HOME)/src \
+        -L $(LIBDIR) \
+        -timescale "1ns/1ns" \
+        -suppress 2181 \
+        -writetoplevels questa.tops
+
+VSIM =  vsim \
+        $(VSIM_OPT) \
+        $(DPI_LIB_VSIM_OPT) \
+        $(OPT_R) \
+        -c \
+        -do "run -all; q" \
+        -l questa.log \
+        -f questa.tops
+
+#
+# Prepare_sv compiles the OVM and the UVM Register Package.
+# It is always compiled from the UVM_REG_HOME/examples directory.
+#
+#   cd $UVM_REG_HOME/examples
+#   make prepare
+#
+# DPI libs are precompiled, so we don't need to build. We keep
+# the targets around in case user wants to rebuild
+
+prepare: prepare_sv
+
+prepare_sv:
+	vlib -quiet $(LIBDIR) 
+	$(VLOG) -incr \
+               $(OVM_VLOG_OPT) \
+               +define+CDNS_NO_SQR_CON_CHK \
+               -work $(LIBDIR) \
+               $(OVM_HOME)/src/ovm_pkg.sv
+	$(VLOG) -incr \
+                $(UVM_REG_VLOG_OPT) \
+                -work $(LIBDIR) \
+                -L $(LIBDIR) \
+                $(UVM_REG_HOME)/src/uvm_reg_pkg.sv
+	vlib -quiet work
+
+prepare_win32:
+	mkdir -p $(LIBDIR)/win32
+	$(GCC_WINCMD)
+
+prepare_linux:
+	mkdir -p $(LIBDIR)/linux
+	$(GCCCMD) -m32 -o $(LIBDIR)/linux/uvm_dpi.so
+
+prepare_linux_x86_64:
+	mkdir -p $(LIBDIR)/linux_x86_64
+	$(GCCCMD) -m64 -o $(LIBDIR)/linux_x86_64/uvm_dpi.so
+
+work:
+	vlib work
+
+clean:
+	rm -rf *~ work vsim.wlf* *.log questa.tops transcript *.vstf
+
+clean-all: clean
+	vdel -lib $(LIBDIR) ovm_pkg 
+	vdel -lib $(LIBDIR) uvm_reg_pkg 
+
+all_examples:
+	$(MAKE) $(EXAMPLE_DIRS)
+	@$(EXAMPLE_CMDS)
+  
+
+##------------------------------------------------------------------------------
+## testing & post-process error checks (internal use)
+##------------------------------------------------------------------------------
+
+compile_test:
+	@echo ""
+	@echo "+----------------+"
+	@echo "| Compiling Test |"
+	@echo "+----------------+"
+	@echo ""
+	vlib work
+	$(VLOG) test.sv
+
+run_test:
+	@echo ""
+	@echo "+--------------+"
+	@echo "| Running Test |"
+	@echo "+--------------+"
+	@echo ""
+	$(VSIM) 
+
+
+N_ERRS = 0
+N_FATALS = 0
+
+TEST    = /usr/bin/test
+CHECK = \
+	@$(TEST) \( `grep -c 'OVM_ERROR :    $(N_ERRS)' questa.log` -eq 1 \) -a \
+		 \( `grep -c 'OVM_FATAL :    $(N_FATALS)' questa.log` -eq 1 \)
+
+
+.PHONY: dpi ovm uvm_reg

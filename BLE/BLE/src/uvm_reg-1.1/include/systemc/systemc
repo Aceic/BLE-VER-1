@@ -1,0 +1,116 @@
+/*****************************************************************************
+
+  The following code is derived, directly or indirectly, from the SystemC
+  source code Copyright (c) 1996-2006 by all Contributors.
+  All Rights reserved.
+
+  The contents of this file are subject to the restrictions and limitations
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
+  You may not use this file except in compliance with such restrictions and
+  limitations. You may obtain instructions on how to receive a copy of the
+  License at http://www.systemc.org/. Software distributed by Contributors
+  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
+  ANY KIND, either express or implied. See the License for the specific
+  language governing rights and limitations under the License.
+
+ *****************************************************************************/
+
+/*****************************************************************************
+
+  systemc - Top-level namespace-based include file for the SystemC library.
+
+  Original Author: Stan Y. Liao, Synopsys, Inc.
+
+ *****************************************************************************/
+
+/*****************************************************************************
+
+  MODIFICATION LOG - modifiers, enter your name, affiliation, date and
+  changes you are making here.
+
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems, 31 Mar 2005
+  Description of Modification: This is the old systemc.h without usings.
+
+  $Id: //dvt/mti/rel/10.0b/src/systemc/systemc#1 $
+
+ *****************************************************************************/
+
+#ifndef SYSTEMC_INCLUDED
+#define SYSTEMC_INCLUDED
+
+
+// include this file first
+#include "sc_cmnhdr.h"
+
+#ifdef SC_INCLUDE_MTI_AC
+#	include "ac_int.h"
+#	include "ac_fixed.h"
+#endif
+
+#include "sc_externs.h"
+#include "sc_module.h"
+#include "sc_simcontext.h"
+#include "sc_process_handle.h"
+#include "sc_ver.h"
+
+#include "sc_buffer.h"
+#include "sc_clock.h"
+#include "sc_clock_ports.h"
+#include "sc_event_queue.h"
+#include "sc_export.h"
+#include "sc_fifo.h"
+#include "sc_fifo_ports.h"
+#include "sc_mutex.h"
+#include "sc_semaphore.h"
+#include "sc_signal.h"
+#include "sc_signal_ports.h"
+
+#include "sc_signal_resolved.h"
+#include "sc_signal_resolved_ports.h"
+#include "sc_signal_rv.h"
+#include "sc_signal_rv_ports.h"
+
+#include "sc_bit.h"
+#include "sc_logic.h"
+#include "sc_bv.h"
+#include "sc_lv.h"
+
+#include "sc_bigint.h"
+#include "sc_biguint.h"
+#include "sc_int.h"
+#include "sc_uint.h"
+
+#include "sc_concatref.h" 
+
+#ifdef SC_INCLUDE_FX
+#   include "fx.h"
+#endif // SC_INCLUDE_FX
+
+#ifdef SC_INCLUDE_DYNAMIC_PROCESSES
+#    include "sc_dynamic_processes.h"
+#endif // SC_INCLUDE_DYNAMIC_PROCESSES
+
+#include "sc_vcd_trace.h"
+#include "sc_wif_trace.h"
+
+#include "sc_iostream.h"
+#include "sc_utils_ids.h"
+
+// modelsim additions
+#include "mti_integration.h"
+#include "sc_foreign_module.h"
+
+#if defined(USE_SC_STRING_OLD) || defined(SC_USE_SC_STRING_OLD)
+	typedef sc_dt::sc_string_old sc_string;
+#endif
+
+#if defined(USE_STD_STRING) || defined(SC_USE_STD_STRING)
+	typedef std::string sc_string;
+#endif
+
+#ifdef USE_MTI_CIN
+#include "mti_istream.h"
+#define cin mti_cin
+#endif
+
+#endif // !defined(SYSTEMC_INCLUDED)
