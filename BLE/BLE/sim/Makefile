@@ -2,9 +2,9 @@
 #Makefile for OVM Testbench
 #RTL = ../Interface/ahi_if.sv
 
-OVC_HOME = ../BLE_OVC
-VIP_HOME = ../VIP
-CTRL_HOME = ../VIP/ble_controller
+#OVC_HOME = ../BLE_OVC
+#VIP_HOME = ../VIP
+#CTRL_HOME = ../VIP/ble_controller
 
 
 work = work
